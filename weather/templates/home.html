@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    WEATHER REPORT
+                </h1>
+                <h2 class="subtitle">- By Rohit</h2>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST" action="/">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" type="text" name="city" placeholder="City Name">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info" type="submit">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-80x80">
+                                    <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
+                                </figure>
+                            </div><span style="width:50px;"></span>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{ city_weather.city }}</span>
+                                        <br>
+                                        <span class="subtitle">{{ city_weather.temperature }}° C</span>
+                                        <br> {{ city_weather.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <footer class="text-center">
+            <div class="container">
+              <h2> &copy; Copyright 2020 Rohit</h2>
+              
+            </div>
+          </footer>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div class="map" style="height:100px;"></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    
+    </script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+
+
+</html>
